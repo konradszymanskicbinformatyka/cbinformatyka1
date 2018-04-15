@@ -1,2 +1,2 @@
-import listy
-import macierz
+import function
+
