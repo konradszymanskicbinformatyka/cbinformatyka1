@@ -1,4 +1,4 @@
-import rand
-print(rand.randomizer())
+import kalkulator
+
 
 
