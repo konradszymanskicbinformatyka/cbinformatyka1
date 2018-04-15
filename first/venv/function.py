@@ -21,9 +21,3 @@ def dzielenie(a,b):
     return wynik
 
 
-first=int(input("podaj pierwszą liczbę"))
-second=int(input("podaj pierwszą liczbę"))
-print(add(2,3))
-print(oddejmowanie(2,3))
-print(mnozenie(2,3))
-print(dzielenie(2,3))
