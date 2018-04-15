@@ -1,0 +1,16 @@
+inty = list(range(-5,5))
+floaty = [1.23, 2.6, 3.7]
+stringi = list('dsadrgs')
+mieszana =[123,"abc",1.23]
+inty.extend([33,31,55,66,122])
+floaty.extend([11.33,33.11,55.22,66.43,122.33])
+stringi.extend(["11","33","55","aa","dd"])
+mieszana.extend([11,"33",55.43,"sd",123])
+inty.sort()
+stringi.sort()
+floaty.reverse()
+mieszana.pop(2)
+print(mieszana)
+print(inty)
+print(floaty)
+print(stringi)
