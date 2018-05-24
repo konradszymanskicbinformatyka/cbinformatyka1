@@ -1,4 +1,4 @@
-import zwierzak
+import operacje_na_plikach
 # import gra
 # import random
 # import time
