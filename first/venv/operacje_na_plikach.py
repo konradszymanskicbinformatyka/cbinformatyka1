@@ -28,7 +28,6 @@ for i in range(len(wyniki)):
         day = '0'+day
 
     date = wynik[1]+'-'+month+'-'+wynik[3]
-
     draws[date] = Draw(wynik[0]).numbers = [
         wynik[4],
         wynik[5],
@@ -38,6 +37,7 @@ for i in range(len(wyniki)):
         wynik[9]
     ]
 
+print(draws)
 # print(draws['21-7-1957'].numbers)
 # słownik = {}
 # lista_słowników = list()
