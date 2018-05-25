@@ -1,43 +1,43 @@
 from draw import Draw
 
-plik = open('wyniki-lotto-sortowane.csv', 'r')
-file_contentent = plik.readlines()
+file = open('wyniki-lotto-sortowane.csv', 'r')
+file_contentent = file.readlines()
 file_without_keys = file_contentent[1:]
-wyniki = file_without_keys
+data = file_without_keys
 
 for i in range(len(file_without_keys)):
     string = str(file_without_keys[i])
     for j in range(len(string)):
-        wyniki[i] = string.split(';')
-for i in range(len(wyniki)):
-    lenght = len(wyniki[i])
-    if len(wyniki[i][lenght-1]) == 3:
-        wyniki[i][lenght-1] = wyniki[i][lenght-1][:2]
+        data[i] = string.split(';')
+for i in range(len(data)):
+    lenght = len(data[i])
+    if len(data[i][lenght-1]) == 3:
+        data[i][lenght-1] = data[i][lenght-1][:2]
     else:
-        wyniki[i][lenght-1] = wyniki[i][lenght-1][:1]
+        data[i][lenght-1] = data[i][lenght-1][:1]
 
 draws = {}
-for i in range(len(wyniki)):
-    wynik = wyniki[i]
+for i in range(len(data)):
+    details_data = data[i]
 
-    month = wynik[2]
+    month = details_data[2]
     if (len(month) == 1):
         month = '0'+month
-    day = wynik[1]
+    day = details_data[1]
     if (len(day) == 1):
         day = '0'+day
 
-    date = wynik[1]+'-'+month+'-'+wynik[3]
-    draws[date] = Draw(wynik[0]).numbers = [
-        wynik[4],
-        wynik[5],
-        wynik[6],
-        wynik[7],
-        wynik[8],
-        wynik[9]
+    date = details_data[1]+'-'+month+'-'+details_data[3]
+    draws[date] = Draw(details_data[0]).numbers = [
+        details_data[4],
+        details_data[5],
+        details_data[6],
+        details_data[7],
+        details_data[8],
+        details_data[9]
     ]
 
-print(draws)
+print(draws['27-01-1957'].numbers)
 # print(draws['21-7-1957'].numbers)
 # słownik = {}
 # lista_słowników = list()
@@ -65,4 +65,4 @@ print(draws)
 #     print(słownik_list[klucze[i]])
 # print(słownik_list)
 
-plik.close()
+file.close()
