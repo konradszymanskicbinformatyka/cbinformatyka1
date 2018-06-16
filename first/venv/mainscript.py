@@ -1,4 +1,4 @@
-import operacje_na_plikach
+import watki
 # import gra
 # import random
 # import time
