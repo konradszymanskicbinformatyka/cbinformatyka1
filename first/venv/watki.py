@@ -1,67 +1,118 @@
 import threading
 import time
+from datetime import date
+today = str(date.today())
 
-def add(a,b):
+
+def add(name,):
     count = 0
+    wynik = 0
+    try:
+        file = open(name, 'w')
+    except PermissionError:
+        print('nie masz uprawnień do utorzenie/otworzenia tego pliku')
     while count < 5:
         time.sleep(delay)
         count += 1
-        wynik = a + b
-        print("name: " + name + " " +time.ctime(time.time()))
+        wynik += 6
+        try:
+            file.write(today + wynik)
+        except FileNotFoundError:
+            print('Nie znalezionu takiego pluku')
 
-def print_time(name,delay):
+
+def substruck(name,delay):
     count = 0
+    wynik = 0
+    try:
+        file = open(name, 'w')
+    except PermissionError:
+        print('nie masz uprawnień do utorzenie/otworzenia tego pliku')
     while count < 5:
         time.sleep(delay)
         count += 1
-        print("name: " + name + " " +time.ctime(time.time()))
+        wynik -= 6
+        try:
+            file.write(today + wynik)
+        except FileNotFoundError:
+            print('Nie znalezionu takiego pluku')
 
-def print_time(name,delay):
+
+def divide(name,delay):
     count = 0
+    wynik = 256
+    try:
+        file = open(name, 'w')
+    except PermissionError:
+        print('nie masz uprawnień do utorzenie/otworzenia tego pliku')
     while count < 5:
         time.sleep(delay)
         count += 1
-        print("name: " + name + " " +time.ctime(time.time())
+        wynik /= 2
+        try:
+            file.write(today + wynik)
+        except FileNotFoundError:
+            print('Nie znalezionu takiego pluku')
 
-def print_time(name, delay):
+
+def multiply(name, delay):
     count = 0
+    wynik = 0
+    try:
+        file = open(name, 'w')
+    except PermissionError:
+        print('nie masz uprawnień do utorzenie/otworzenia tego pliku')
     while count < 5:
         time.sleep(delay)
         count += 1
-        print("name: " + name + " " + time.ctime(time.time()))
+        wynik *= 6
+        try:
+            file.write(today + wynik)
+        except FileNotFoundError:
+            print('Nie znalezionu takiego pluku')
 
-def print_time(name, delay):
+
+def power(name, delay):
     count = 0
+    wynik = 0
+    try:
+        file = open(name, 'w')
+    except PermissionError:
+        print('nie masz uprawnień do utorzenie/otworzenia tego pliku')
+
     while count < 5:
         time.sleep(delay)
         count += 1
-        print("name: " + name + " " + time.ctime(time.time()))
+        wynik ^= 6
+        try:
+            file.write(today + wynik)
+        except FileNotFoundError:
+            print('Nie znalezionu takiego pluku')
 
 
-
-    return wynik
-
-
-def oddejmowanie(a,b):
-    wynik=a-b
-    return wynik
-
-
-def mnozenie(a,b):
-    wynik=a*b
-    return wynik
-
-
-def dzielenie(a,b):
-    if b==0:
-        wynik="nie można dzielić przez zero"
-        return wynik
-    wynik=a/b
-    return wynik
-
-t1 =threading.Thread(target=print_time,args=('watek1',2))
-t2 =threading.Thread(target=print_time,args=('watek2',1))
-t3 =threading.Thread(target=print_time,args=('watek3',4))
-t1.start()
-t2.start()
-t3.start()
+t1 = threading.Thread(target=add,args=('add',1))
+t2 = threading.Thread(target=substruck,args=('sunstruct',1))
+t3 = threading.Thread(target=divide,args=('devide',1))
+t4 = threading.Thread(target=multiplye,args=('multiply',1))
+t5 = threading.Thread(target=power,args=('power',1))
+try:
+    t1.start()
+except Exception:
+    print('Nie można było wystartować wątku')
+try:
+    t2.start()
+except Exception:
+    print('Nie można było wystartować wątku')
+try:
+    t3.start()
+except Exception:
+    print('Nie można było wystartować wątku')
+try:
+    t4.start()
+except Exception:
+    print('Nie można było wystartować wątku')
+try:
+    t5.start()
+except Exception:
+    print('Nie można było wystartować wątku')
+file.close()
